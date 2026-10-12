@@ -1,0 +1,18 @@
+/* Header 스타일 */
+.header{
+  background-color: #333;
+  padding: 20px;
+}
+.header a{
+  color: #f9f4f4;
+  margin: 0 16px;
+}
+
+/* Main 스타일 */
+.main{padding: 20px;}
+
+/* 상품 목록 스타일 */
+.product-list{
+  width: 1000px;
+  margin: 20px auto;
+}
