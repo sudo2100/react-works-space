@@ -13,10 +13,10 @@ const ProductInfo = () => {
     const product = products.find(p => p.id === Number(id));
 
     return(
-        <div>
+        <div className="product-info">
             <h2>상품 정보</h2>
             {/* <h3>상품 ID: {id}</h3> */}
-            <div className="product-detail">
+            <div className="detail">
                 <p>상품명: {product.name}</p>
                 <p>가격: {product.price}</p>
                 <p>설명: {product.description}</p>

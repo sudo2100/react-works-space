@@ -26,14 +26,27 @@ const AddProduct = () => {
     // 폼 제출 처리 함수
     const handleSubmit = (e) => {
         e.preventDefault(); 
-
         console.log("상품 추가: ", formData);
+
+        // 입력값 검증(유효성 검사)
+        if(!formData.name.trim() || !formData.price ||
+            !formData.description.trim()){
+            alert("모든 필드를 입력하세요");
+            return;  //즉시 종료
+        }
+
+        // 가격 필드 검증
+        if(formData.price < 0){
+            alert("가격은 0보다 큰 숫자를 입력하세요");
+            return;
+        }
+
         alert("상품이 등록되었습니다.");
         navigate("/products");  //상품 등록 후 목록 페이지로 이동
     }
 
     return(
-        <div>
+        <div className="add-product">
             <h2>상품 등록</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -63,6 +76,7 @@ const AddProduct = () => {
                     <textarea
                         id="description"
                         name="description"
+                        rows={5}
                         value={formData.description}
                         onChange={handleInputChange}
                         placeholder="상품 설명을 입력하세요"
