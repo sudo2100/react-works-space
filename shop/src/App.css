@@ -4,15 +4,15 @@
   padding: 20px;
 }
 .header a{
-  color: #f9f4f4;
+  color: yellowgreen;
   margin: 0 16px;
+  text-decoration: none;
+}
+/* 마우스 올렸을때 스타일 */
+.header a:hover{
+  color: #eee;
 }
 
 /* Main 스타일 */
-.main{padding: 20px;}
 
 /* 상품 목록 스타일 */
-.product-list{
-  width: 1000px;
-  margin: 20px auto;
-}

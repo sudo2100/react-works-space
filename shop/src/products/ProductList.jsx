@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import products from "../datas/products";
 
 const ProductList = () => {
@@ -8,9 +9,10 @@ const ProductList = () => {
             <ul>
                 {products.map((product) => (
                     <li key={product.id}>
-                        <h3>{product.name}</h3>
+                        <h3>
+                            <Link to={`/products/${product.id}`}>{product.name}</Link>
+                        </h3>
                         <p>가격: {product.price}</p>
-                        <p>설명: {product.description}</p>
                     </li>
                 ))}
             </ul>
