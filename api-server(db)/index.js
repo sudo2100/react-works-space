@@ -88,6 +88,28 @@ app.delete("/api/products/:id", (req, res) => {
     });
 })
 
+// 상품 수정
+// app.put(경로, 콜백함수)
+app.put("/api/products/:id", (req, res) => {
+    // 수정하려면 이미 존재하는 상품(id)을 가져오기
+    const productId = req.params.id;
+    const {productName, price} = req.body; //수정된 데이터를 가져옴
+    const sql = "UPDATE product SET product_name=?, price=? WHERE id=?";
+    db.query(sql, [productName, price, productId], (err, results) => {
+        if(err){
+            console.log("상품 조회 에러: ", err);
+            // 500: 코드 오류, 404: 페이지 없음, 200: 정상
+            res.status(501).send("상품 조회 중 오류가 발생했습니다.");
+            return;
+        }
+        res.status(200).send("상품이 성공적으로 수정되었습니다.");
+    })
+})
+
+
+
+
+
 
 
 // 서버 실행
