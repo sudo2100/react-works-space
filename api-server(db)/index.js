@@ -59,6 +59,37 @@ app.post("/api/products", (req, res) => {
     } );
 })
 
+// 상품 상세 보기(1건)
+app.get("/api/products/:id", (req, res) => {
+    const productId = req.params.id;
+    const sql = "SELECT * FROM product WHERE id = ?"
+    db.query(sql, [productId], (err, results) => {
+        if(err){
+            console.log("상품 조회 에러: ", err);
+            res.send("상품 조회 중 오류가 발생했습니다.");
+            return;
+        }
+        res.json(results[0]);  //1건(맨 앞)
+    });
+})
+
+// 상품 삭제(1건)
+// app.delete(경로, 콜백함수)
+app.delete("/api/products/:id", (req, res) => {
+    const productId = req.params.id;
+    const sql = "DELETE FROM product WHERE id = ?";
+    db.query(sql, [productId], (err, results) => {
+        if(err){
+            console.log("상품 조회 에러: ", err);
+            res.send("상품 조회 중 오류가 발생했습니다.");
+            return;
+        }
+        res.send("상품이 성공적으로 삭제되었습니다.");
+    });
+})
+
+
+
 // 서버 실행
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}에서 서버 실행중...`);
