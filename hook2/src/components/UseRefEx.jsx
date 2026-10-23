@@ -9,9 +9,15 @@ const UseRefEx = () => {
     console.log("렌더링...");
     console.log(countRef); // {current: 0}
     
-    // 1증가 시키는 함수
+    // 1증가 시키는 함수(state-상태 증가)
     const increaseCount = () => {
         setCount(count + 1);
+    }
+
+    // 참조 증가(기억 기능을 함)
+    const increaeCountRef = () => {
+        countRef.current = countRef.current + 1;
+        console.log("Ref:", countRef.current);  
     }
 
     return(
@@ -21,7 +27,7 @@ const UseRefEx = () => {
             <p>Ref: {countRef.current}</p>
 
             <button onClick={increaseCount}>State 증가</button>
-            <button>Ref 증가</button>
+            <button onClick={increaeCountRef}>Ref 증가</button>
         </div>
     )
 }
