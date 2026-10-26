@@ -8,6 +8,10 @@ import InputFocus from './components/InputFocus'
 import Counter from './components/Counter'
 import CountReducer from './hooks/CountReducer'
 import BankReducer from './hooks/BankReducer'
+import UserParent from './use_context/UserParent'
+import CounterReducer from './apps/CounterReducer'
+
+// 내보내기 할때 defalut가 없는 경우 - 중괄호로 묶는다.
 
 function App() {
 
@@ -18,7 +22,9 @@ function App() {
         {/* <InputFocus /> */}
         {/* <Counter /> */}
         {/* <CountReducer /> */}
-        <BankReducer />
+        {/* <BankReducer /> */}
+        {/* <UserParent /> */}
+        <CounterReducer />
       </section>
     </>
   )
